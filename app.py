@@ -24,8 +24,8 @@ for file in pattern_files:
 target_labels = ["Person", "Country", "City", "Gpe_Other", "Occasion_Other", "Location", "Location_Other", "Domestic_Region", "Province", "Station", "Continental_Region", "Theater", "Facility", "Organization", "Company", "School", "International_Organization", "Goe_Other", "Show_Organization", "Corporation_Other"]
 
 # Streamlitの設定
-st.title("カスタムGiNZAでNER抽出")
-st.write("テキストを入力して、NERエンティティを抽出します。")
+st.title("カスタムGiNZAで対象NERのみ抽出_04")
+st.write("テキストを入力して、対象のNERエンティティを抽出します。")
 
 # テキスト入力欄
 input_text = st.text_area("テキストを入力してください：")

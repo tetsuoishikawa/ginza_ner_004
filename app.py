@@ -34,8 +34,12 @@ input_text = st.text_area("テキストを入力してください：")
 if st.button("解析開始"):
     # テキストの解析
     doc = nlp(input_text)
-    # 特定のラベルを持つエンティティのみを抽出
-    entities = [(ent.text, ent.label_) for ent in doc.ents if ent.label_ in target_labels]
+    
+    # 特定のラベルを持つエンティティのみをフィルタリング
+    filtered_ents = [ent for ent in doc.ents if ent.label_ in target_labels]
+
+    # フィルタリングされたエンティティで新しいドキュメントを作成
+    doc.ents = filtered_ents
 
     # displacyで表示する内容をHTMLとして保存
     html = displacy.render(doc, style="ent", jupyter=False)
@@ -54,4 +58,3 @@ if st.button("解析開始"):
     st.markdown(download_html, unsafe_allow_html=True)
 
     st.write("エンティティの情報が解析されました。以下のリンクからダウンロードできます。")
-
